@@ -7,7 +7,7 @@ import { AlumnosComponent } from './component/alumnos/alumnos.component';
 import { CursosComponent } from './component/cursos/cursos.component';
 import { ExamenesComponent } from './component/examenes/examenes.component';
 import { LayoutModule } from './layout/layout.module';
-
+import {HttpClientModule} from "@angular/common/http"
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +18,8 @@ import { LayoutModule } from './layout/layout.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    LayoutModule
+    LayoutModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

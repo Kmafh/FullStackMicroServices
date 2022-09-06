@@ -6,6 +6,6 @@ export class Examen {
   name: string;
   createAt: Date;
   preguntas: Pregunta[]=[];
-  asignaturas: Asignatura[]=[];
+  asignaturas: Asignatura;
   respondido: boolean;
 }
