@@ -7,7 +7,7 @@
 		<version>2.7.3</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.tala.microservicios.app.respuestas</groupId>
+	<groupId>com.talan.microservicios.app.respuestas</groupId>
 	<artifactId>respuestas</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>respuestas</name>

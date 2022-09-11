@@ -1,4 +1,4 @@
-package com.tala.microservicios.app.respuestas.models.entity;
+package com.talan.microservicios.app.respuestas.models.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -15,7 +15,7 @@ import com.talan.microservicios.commons.examenes.models.entity.Pregunta;
 @Entity
 @Table(name="respuestas")
 public class Respuesta {
-
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -26,8 +26,6 @@ public class Respuesta {
 	
 	@OneToOne(fetch = FetchType.LAZY)
 	private Pregunta pregunta;
-	
-	
 	
 	public Long getId() {
 		return id;
@@ -41,20 +39,8 @@ public class Respuesta {
 	public void setText(String text) {
 		this.text = text;
 	}
-	public Alumno getAlumno() {
-		return alumno;
-	}
-	public void setAlumno(Alumno alumno) {
-		this.alumno = alumno;
-	}
-	public Pregunta getPregunta() {
-		return pregunta;
-	}
-	public void setPregunta(Pregunta pregunta) {
-		this.pregunta = pregunta;
-	}
 	
 	
 	
-	
+
 }
