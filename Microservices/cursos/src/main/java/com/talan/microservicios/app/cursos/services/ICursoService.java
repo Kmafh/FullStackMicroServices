@@ -1,8 +1,10 @@
 package com.talan.microservicios.app.cursos.services;
+
 import com.talan.microservicios.app.cursos.models.entity.Curso;
 import com.talan.microservicios.app.usuarios.common.service.ICommonService;
 
 public interface ICursoService extends ICommonService<Curso>{
 
 	public Curso findCrusoByAlumnoId(Long id);
+	public Iterable<Long> obtenerExamenesIdRespondidosPorAlumno(Long alumnoId);
 }

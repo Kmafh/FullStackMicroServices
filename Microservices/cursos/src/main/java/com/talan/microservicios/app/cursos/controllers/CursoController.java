@@ -1,10 +1,14 @@
 package com.talan.microservicios.app.cursos.controllers;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
@@ -66,6 +70,19 @@ public class CursoController extends CommonController<Curso,ICursoService>{
 	@GetMapping("/alumno/{id}")
 	public ResponseEntity<?> searhByAlumnoId(@PathVariable Long id){
 		Curso curso= service.findCrusoByAlumnoId(id);
+		if(curso!=null) {
+			List<Long> examenesIds = (List<Long>) service.obtenerExamenesIdRespondidosPorAlumno(id);
+			
+			List<Examen> examenes = curso.getExamenes().stream().map(examen ->{
+				if(examenesIds.contains(examen.getId())) {
+					examen.setRespondido(true);
+				}
+				return examen;
+			}).collect(Collectors.toList());
+
+			curso.setExamenes(examenes);
+			
+		}
 		return ResponseEntity.ok(curso);
 	}
 	
@@ -95,4 +112,16 @@ public class CursoController extends CommonController<Curso,ICursoService>{
 		
 		return ResponseEntity.status(HttpStatus.CREATED).body(this.service.save(dbCurso));
 	}
+
+	@Value("${config.balanceador-test}")
+	private String balanceadorTest;
+	@GetMapping("/balanceador-test")
+	public ResponseEntity<?> balaceadorTest() {
+		Map<String, Object> response= new HashMap<>();
+		response.put("balanceador",balanceadorTest);
+		response.put("cursos",service.findAll());
+		return ResponseEntity.ok(response);
+	}
+	
+	
 }
