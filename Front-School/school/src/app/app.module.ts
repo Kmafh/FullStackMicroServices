@@ -7,19 +7,23 @@ import { AlumnosComponent } from './component/alumnos/alumnos.component';
 import { CursosComponent } from './component/cursos/cursos.component';
 import { ExamenesComponent } from './component/examenes/examenes.component';
 import { LayoutModule } from './layout/layout.module';
-import {HttpClientModule} from "@angular/common/http"
+import {HttpClientModule} from "@angular/common/http";
+import { AlumnosFormComponent } from './component/alumnos/alumnos-form.component'
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
     AlumnosComponent,
     CursosComponent,
-    ExamenesComponent
+    ExamenesComponent,
+    AlumnosFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     LayoutModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

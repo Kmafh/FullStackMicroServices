@@ -113,8 +113,9 @@ public class CursoController extends CommonController<Curso,ICursoService>{
 		return ResponseEntity.status(HttpStatus.CREATED).body(this.service.save(dbCurso));
 	}
 
-	@Value("${config.balanceador-test}")
+	@Value("${config.balanceador.test}")
 	private String balanceadorTest;
+	
 	@GetMapping("/balanceador-test")
 	public ResponseEntity<?> balaceadorTest() {
 		Map<String, Object> response= new HashMap<>();
